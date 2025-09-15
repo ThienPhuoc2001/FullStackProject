@@ -1,16 +1,18 @@
 ﻿####fullstackproject
 
-1) Set up folder structure + make git repository with git init and make a gitignore file with dotnet new gitignore (optionally also gitignore the file appsettings.json)
+[//]: # (1&#41; Set up folder structure + make git repository with git init and make a gitignore file with dotnet new gitignore &#40;optionally also gitignore the file appsettings.json&#41; &#40;Done&#41;)
 
-2) Create client app in "client" directory with npm create vite
+[//]: # ()
+[//]: # (2&#41; Create client app in "client" directory with npm create vite &#40;Done&#41;)
 
-3) Create server directory with c# projects Api (web), Tests (xunit3) and DataAccess (classlib)
+[//]: # ()
+[//]: # (3&#41; Create server directory with c# projects Api &#40;web&#41;, Tests &#40;xunit3&#41; and DataAccess &#40;classlib&#41; &#40;Done&#41; )
 
-4) Add relevant Nuget packages to each project, adjust .Net project versions, and add references Tests -> Api -> DataAccess
+[//]: # (4&#41; Add relevant Nuget packages to each project, adjust .Net project versions, and add references Tests -> Api -> DataAccess)
 
-5) Provision a database at Postgres Neon and connect to it using Rider's Database Tool
+[//]: # (5&#41; Provision a database at Postgres Neon and connect to it using Rider's Database Tool)
 
-6) Build tables in the database and perform scaffolding from DataAccess project [Also see Monday, week 37 in Programming II for scaffolding steps]
+[//]: # (6&#41; Build tables in the database and perform scaffolding from DataAccess project [Also see Monday, week 37 in Programming II for scaffolding steps])
 
 7) Add AppOptions
 
