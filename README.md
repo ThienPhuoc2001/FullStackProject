@@ -8,21 +8,23 @@
 [//]: # ()
 [//]: # (3&#41; Create server directory with c# projects Api &#40;web&#41;, Tests &#40;xunit3&#41; and DataAccess &#40;classlib&#41; &#40;Done&#41; )
 
-[//]: # (4&#41; Add relevant Nuget packages to each project, adjust .Net project versions, and add references Tests -> Api -> DataAccess)
+4) Add relevant Nuget packages to each project, adjust .Net project versions, and add references Tests -> Api -> DataAccess
 
 [//]: # (5&#41; Provision a database at Postgres Neon and connect to it using Rider's Database Tool)
 
 [//]: # (6&#41; Build tables in the database and perform scaffolding from DataAccess project [Also see Monday, week 37 in Programming II for scaffolding steps])
 
-7) Add AppOptions
+[//]: # (7&#41; Add AppOptions)
 
-(optionally add  Dependency injection for your DbContext to test the app options or simply trigger the DataAnnotations validations for your AppOptions properties. In my solution I did dependency injection for DbContext a few steps later)
+[//]: # ()
+[//]: # (&#40;optionally add  Dependency injection for your DbContext to test the app options or simply trigger the DataAnnotations validations for your AppOptions properties. In my solution I did dependency injection for DbContext a few steps later&#41;)
 
-[Also see Systems Development II.Testing week 37, exercise 3 for Options Pattern implementation steps]
+[//]: # ()
+[//]: # ([Also see Systems Development II.Testing week 37, exercise 3 for Options Pattern implementation steps])
 
-8) Add Dependency injection + Middleware for controllers & Swagger/OpenAPI. Then add NSwag.CodeGeneration.Typescript  [Also see Systems Development II.Testing week 37, exercise 2 for NSwag Typescript generation steps]
+[//]: # (8&#41; Add Dependency injection + Middleware for controllers & Swagger/OpenAPI. Then add NSwag.CodeGeneration.Typescript  [Also see Systems Development II.Testing week 37, exercise 2 for NSwag Typescript generation steps])
 
-9) Configure CORS in Program.cs with builder.Services.AddCors(); and app.UseCors(config => config.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().SetIsOriginAllowed(x => true));
+[//]: # (9&#41; Configure CORS in Program.cs with builder.Services.AddCors&#40;&#41;; and app.UseCors&#40;config => config.AllowAnyHeader&#40;&#41;.AllowAnyMethod&#40;&#41;.AllowAnyOrigin&#40;&#41;.SetIsOriginAllowed&#40;x => true&#41;&#41;;)
 
 10) Add service classes & controller classes + Dependency injection for these
 

@@ -1,5 +1,8 @@
-﻿namespace DataAccess;
+﻿using System.ComponentModel.DataAnnotations;
 
-public class Class1
+namespace DataAccess;
+
+public sealed class AppOptions
 {
+    [Required] [MinLength(20)] public string DbConnectionString { get; set; } = string.Empty!;
 }
