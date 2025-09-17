@@ -8,7 +8,7 @@
 [//]: # ()
 [//]: # (3&#41; Create server directory with c# projects Api &#40;web&#41;, Tests &#40;xunit3&#41; and DataAccess &#40;classlib&#41; &#40;Done&#41; )
 
-4) Add relevant Nuget packages to each project, adjust .Net project versions, and add references Tests -> Api -> DataAccess
+[//]: # (4&#41; Add relevant Nuget packages to each project, adjust .Net project versions, and add references Tests -> Api -> DataAccess)
 
 [//]: # (5&#41; Provision a database at Postgres Neon and connect to it using Rider's Database Tool)
 
@@ -26,7 +26,7 @@
 
 [//]: # (9&#41; Configure CORS in Program.cs with builder.Services.AddCors&#40;&#41;; and app.UseCors&#40;config => config.AllowAnyHeader&#40;&#41;.AllowAnyMethod&#40;&#41;.AllowAnyOrigin&#40;&#41;.SetIsOriginAllowed&#40;x => true&#41;&#41;;)
 
-10) Add service classes & controller classes + Dependency injection for these
+[//]: # (10&#41; Add service classes & controller classes + Dependency injection for these)
 
 11) Create Response DTOs (and optionally define service + controller methods with signatures but empty implementation / throw new NotImplementedException(); )
 
