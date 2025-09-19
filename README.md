@@ -1,4 +1,4 @@
-﻿####fullstackproject
+﻿####fullstackprojectthienlam
 
 [//]: # (1&#41; Set up folder structure + make git repository with git init and make a gitignore file with dotnet new gitignore &#40;optionally also gitignore the file appsettings.json&#41; &#40;Done&#41;)
 
