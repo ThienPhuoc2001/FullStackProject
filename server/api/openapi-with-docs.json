@@ -11,7 +11,7 @@
         "tags": [
           ""
         ],
-        "operationId": "_GetItems",
+        "operationId": "_GetBooks",
         "responses": {
           "200": {
             "description": "",

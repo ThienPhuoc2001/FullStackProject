@@ -1,0 +1,19 @@
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace api.Etc;
+
+public class GenreController  : ControllerBase {
+    private readonly IGenreService _service;
+
+    public GenreController(IGenreService service)
+    {
+        _service = service;
+    }
+        
+     [Route("/")]
+     public ActionResult GetGenres()
+     {
+         return Ok(_service.GetGenres());
+     }
+}
+        

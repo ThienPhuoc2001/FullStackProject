@@ -5,7 +5,11 @@ using api.Etc;
 using DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddScoped<IService, Service>();
+
+builder.Services.AddScoped<IBookService, BookService>();
+builder.Services.AddScoped<IGenreService, GenreService>();
+builder.Services.AddScoped<IAuthorService, AuthorService>();
+
 builder.Services.AddOpenApiDocument();
 builder.Services.AddSingleton<AppOptions>(provider =>
 {
