@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace api.Etc;
 
@@ -11,7 +11,7 @@ public class AuthorController : ControllerBase
         _service = service;
     }
 
-    [Route("/")]
+    [Route("/authors")]
     public ActionResult GetAuthor()
     {
         return Ok(_service.GetAuthor());

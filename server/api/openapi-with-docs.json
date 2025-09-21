@@ -6,12 +6,54 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/": {
+    "/authors": {
       "get": {
         "tags": [
-          ""
+          "Author"
         ],
-        "operationId": "_GetBooks",
+        "operationId": "Author_GetAuthor",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/books": {
+      "get": {
+        "tags": [
+          "Book"
+        ],
+        "operationId": "Book_GetBooks",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/genres": {
+      "get": {
+        "tags": [
+          "Genre"
+        ],
+        "operationId": "Genre_GetGenres",
         "responses": {
           "200": {
             "description": "",

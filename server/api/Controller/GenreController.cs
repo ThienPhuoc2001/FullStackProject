@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace api.Etc;
 
@@ -10,10 +10,9 @@ public class GenreController  : ControllerBase {
         _service = service;
     }
         
-     [Route("/")]
+     [Route("/genres")]
      public ActionResult GetGenres()
      {
          return Ok(_service.GetGenres());
      }
 }
-        

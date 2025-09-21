@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace api.Etc;
 
@@ -11,10 +11,9 @@ public class BookController : ControllerBase
         _service = service;
     }
 
-    [Route("/")]
+    [Route("/books")]
     public ActionResult GetBooks()
     {
         return Ok(_service.GetBooks());
     }
 }
-    

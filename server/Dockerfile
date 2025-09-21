@@ -1,6 +1,6 @@
 # Use the .NET SDK image to build the application
 FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine AS build
-WORKDIR /src
+WORKDIR /server/Dockerfile
 COPY ["./", "."]
 # Publish the application as a framework-dependent app.
 # This is more standard for containerized .NET apps and avoids issues with self-contained executables.
