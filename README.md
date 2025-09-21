@@ -1,7 +1,5 @@
 ﻿####fullstackprojectthienlam
 
-13) Adjust Program.cs to feature a ConfigureServices(IServiceCollection services) method (which you can call in your tests/Setup.cs file)
-
 14) In your tests/Setup.cs, replace DbContext instance with a TestContainer instance https://github.com/uldahlalex/testcontainersdemointernational/blob/master/tests/Startup.cs
 
 15) In your React app, set up Routing with React Router 7 data mode
