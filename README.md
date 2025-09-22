@@ -1,12 +1,6 @@
 ﻿####fullstackprojectthienlam
 
 
-15) In your React app, set up Routing with React Router 7 data mode
-
-16) Add jotai + jotai-devtools for global state management.
-
-(If you want to add atoms right away, I recommend adding a few controller methods with the DTOs as response type such that you can use the models from the generated TS client file).
-
 17) Add UI library (like DaisyUI)
 
 18) Configure development base URL & production base URL with Vite & instantiate Typescript HTTP client from generated code like this: https://github.com/uldahlalex/todo/blob/master/client/src/baseUrl.ts

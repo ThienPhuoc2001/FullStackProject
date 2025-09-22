@@ -1,20 +1,31 @@
-﻿namespace api.Etc;
+﻿using api.DTOs;
+using DataAccess;
+using Microsoft.EntityFrameworkCore;
+
+namespace api.Etc;
 
 public interface IBookService
 {
-    List<string> GetBooks();
+    IEnumerable<BookDto> GetBooks();
 
 }
 public class BookService : IBookService
 {
-    public BookService()
+    private readonly NeondbContext _context;
+    
+    public BookService(NeondbContext context)
     {
-        Console.WriteLine("BookService instantiated");
+        _context = context;
     }
-    public List <string> GetBooks()
+    
+    public IEnumerable<BookDto> GetBooks()
     {
-        throw new NotImplementedException();
-    }
-
-   
+        // This fetches the books, includes their related authors and genre,
+        // and converts them to the BookDto format.
+        return _context.Books
+            .Include(b => b.Authors)
+            .Include(b => b.Genre)
+            .Select(b => new BookDto(b))
+            .ToList();    }
+    
 }

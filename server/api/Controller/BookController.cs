@@ -1,3 +1,4 @@
+using api.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Etc;
@@ -12,7 +13,7 @@ public class BookController : ControllerBase
     }
 
     [Route("/books")]
-    public ActionResult GetBooks()
+    public ActionResult<IEnumerable<BookDto>>GetBooks()
     {
         return Ok(_service.GetBooks());
     }

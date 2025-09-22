@@ -22,6 +22,7 @@ public partial class Program
 {
     public static void ConfigureServices(IServiceCollection services)
     {
+        services.AddDbContext<NeondbContext>();
         services.AddScoped<IBookService, BookService>();
         services.AddScoped<IGenreService, GenreService>();
         services.AddScoped<IAuthorService, AuthorService>();
