@@ -17,14 +17,14 @@ export class AuthorClient {
         this.baseUrl = baseUrl ?? "";
     }
 
-    getAuthor(): Promise<FileResponse> {
+    getAuthor(): Promise<AuthorDto[]> {
         let url_ = this.baseUrl + "/authors";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_: RequestInit = {
             method: "GET",
             headers: {
-                "Accept": "application/octet-stream"
+                "Accept": "application/json"
             }
         };
 
@@ -33,26 +33,21 @@ export class AuthorClient {
         });
     }
 
-    protected processGetAuthor(response: Response): Promise<FileResponse> {
+    protected processGetAuthor(response: Response): Promise<AuthorDto[]> {
         const status = response.status;
         let _headers: any = {}; if (response.headers && response.headers.forEach) { response.headers.forEach((v: any, k: any) => _headers[k] = v); };
-        if (status === 200 || status === 206) {
-            const contentDisposition = response.headers ? response.headers.get("content-disposition") : undefined;
-            let fileNameMatch = contentDisposition ? /filename\*=(?:(\\?['"])(.*?)\1|(?:[^\s]+'.*?')?([^;\n]*))/g.exec(contentDisposition) : undefined;
-            let fileName = fileNameMatch && fileNameMatch.length > 1 ? fileNameMatch[3] || fileNameMatch[2] : undefined;
-            if (fileName) {
-                fileName = decodeURIComponent(fileName);
-            } else {
-                fileNameMatch = contentDisposition ? /filename="?([^"]*?)"?(;|$)/g.exec(contentDisposition) : undefined;
-                fileName = fileNameMatch && fileNameMatch.length > 1 ? fileNameMatch[1] : undefined;
-            }
-            return response.blob().then(blob => { return { fileName: fileName, data: blob, status: status, headers: _headers }; });
+        if (status === 200) {
+            return response.text().then((_responseText) => {
+            let result200: any = null;
+            result200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver) as AuthorDto[];
+            return result200;
+            });
         } else if (status !== 200 && status !== 204) {
             return response.text().then((_responseText) => {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             });
         }
-        return Promise.resolve<FileResponse>(null as any);
+        return Promise.resolve<AuthorDto[]>(null as any);
     }
 }
 
@@ -110,14 +105,14 @@ export class GenreClient {
         this.baseUrl = baseUrl ?? "";
     }
 
-    getGenres(): Promise<FileResponse> {
+    getGenres(): Promise<GenreDto[]> {
         let url_ = this.baseUrl + "/genres";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_: RequestInit = {
             method: "GET",
             headers: {
-                "Accept": "application/octet-stream"
+                "Accept": "application/json"
             }
         };
 
@@ -126,27 +121,29 @@ export class GenreClient {
         });
     }
 
-    protected processGetGenres(response: Response): Promise<FileResponse> {
+    protected processGetGenres(response: Response): Promise<GenreDto[]> {
         const status = response.status;
         let _headers: any = {}; if (response.headers && response.headers.forEach) { response.headers.forEach((v: any, k: any) => _headers[k] = v); };
-        if (status === 200 || status === 206) {
-            const contentDisposition = response.headers ? response.headers.get("content-disposition") : undefined;
-            let fileNameMatch = contentDisposition ? /filename\*=(?:(\\?['"])(.*?)\1|(?:[^\s]+'.*?')?([^;\n]*))/g.exec(contentDisposition) : undefined;
-            let fileName = fileNameMatch && fileNameMatch.length > 1 ? fileNameMatch[3] || fileNameMatch[2] : undefined;
-            if (fileName) {
-                fileName = decodeURIComponent(fileName);
-            } else {
-                fileNameMatch = contentDisposition ? /filename="?([^"]*?)"?(;|$)/g.exec(contentDisposition) : undefined;
-                fileName = fileNameMatch && fileNameMatch.length > 1 ? fileNameMatch[1] : undefined;
-            }
-            return response.blob().then(blob => { return { fileName: fileName, data: blob, status: status, headers: _headers }; });
+        if (status === 200) {
+            return response.text().then((_responseText) => {
+            let result200: any = null;
+            result200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver) as GenreDto[];
+            return result200;
+            });
         } else if (status !== 200 && status !== 204) {
             return response.text().then((_responseText) => {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             });
         }
-        return Promise.resolve<FileResponse>(null as any);
+        return Promise.resolve<GenreDto[]>(null as any);
     }
+}
+
+export interface AuthorDto {
+    id?: string;
+    name?: string;
+    createdat?: string | undefined;
+    books?: BookDto[];
 }
 
 export interface BookDto {
@@ -163,13 +160,6 @@ export interface GenreDto {
     name?: string;
     createdat?: string | undefined;
     books?: string[];
-}
-
-export interface FileResponse {
-    data: Blob;
-    status: number;
-    fileName?: string;
-    headers?: { [name: string]: any };
 }
 
 export class ApiException extends Error {

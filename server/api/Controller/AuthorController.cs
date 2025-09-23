@@ -1,3 +1,4 @@
+using api.Etc.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Etc;
@@ -12,7 +13,7 @@ public class AuthorController : ControllerBase
     }
 
     [Route("/authors")]
-    public ActionResult GetAuthor()
+     public ActionResult <IEnumerable<AuthorDto>> GetAuthor()
     {
         return Ok(_service.GetAuthor());
     }

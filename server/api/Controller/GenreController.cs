@@ -1,3 +1,4 @@
+using api.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Etc;
@@ -11,7 +12,7 @@ public class GenreController  : ControllerBase {
     }
         
      [Route("/genres")]
-     public ActionResult GetGenres()
+     public ActionResult <IEnumerable<GenreDto>>GetGenres()
      {
          return Ok(_service.GetGenres());
      }

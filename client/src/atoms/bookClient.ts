@@ -1,17 +1,22 @@
-﻿import {atom} from 'jotai';
-import {BookClient, type BookDto } from "../models/generated-client.ts";
+import { atom } from 'jotai';
+import { bookClient}   from "../baseUrl.ts";
+import { type BookDto } from '../models/generated-client';
 
-
-const bookClient = new BookClient('http://localhost:5173');
 export const booksAtom = atom<BookDto[]>([]);
+export const booksIsLoadingAtom = atom(true);
+
 export const fetchBooksAtom = atom(
-    null,
-    async (_get, set) => {
-      try {
-          const books = await bookClient.getBooks();
-            set(booksAtom, books);
-        } catch (error) {
-            console.error("Failed to fetch books:", error);
-      }
+  null,
+  async (_get, set) => {
+    set(booksIsLoadingAtom, true);
+    try {
+      const books = await bookClient.getBooks();
+      set(booksAtom, books);
+    } catch (e) {
+      console.error("Failed to fetch books:", e);
+      set(booksAtom, []);
+    } finally {
+      set(booksIsLoadingAtom, false);
     }
+  }
 );

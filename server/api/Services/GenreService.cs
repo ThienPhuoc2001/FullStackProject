@@ -1,19 +1,28 @@
-﻿using DataAccess;
+﻿using api.DTOs;
+using DataAccess;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace api.Etc;
 
-public partial interface IGenreService
+public interface IGenreService
 {
-    List<string> GetGenres();
+    IEnumerable<GenreDto> GetGenres();
 }
 public class GenreService : IGenreService
 {
-    public GenreService()
+    private readonly NeondbContext _context;
+    public GenreService(NeondbContext context)
     {
-        Console.WriteLine("GenreService being used");
+        _context = context;
     }
-    public List<string> GetGenres()
+    public IEnumerable<GenreDto> GetGenres()
     {
-        throw new NotImplementedException();
+        return _context.Genres
+            .Include (g => g.Books)
+            .ThenInclude (b => b.Authors)
+            .Select(g => new GenreDto(g))
+            .ToList();
+            
     }
 }

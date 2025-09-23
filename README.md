@@ -1,10 +1,5 @@
 ﻿####fullstackprojectthienlam
 
-
-17) Add UI library (like DaisyUI)
-
-18) Configure development base URL & production base URL with Vite & instantiate Typescript HTTP client from generated code like this: https://github.com/uldahlalex/todo/blob/master/client/src/baseUrl.ts
-
 19) Add Dockerfile to client directory like this https://github.com/uldahlalex/todo/blob/master/client/Dockerfile +  fly launch --dockerfile=./Dockerfile to configure deployment
 
 At this point all configuration / setup / installations / boilerplate are pretty much done.
