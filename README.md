@@ -1,6 +1,5 @@
 ﻿####fullstackprojectthienlam
 
-19) Add Dockerfile to client directory like this https://github.com/uldahlalex/todo/blob/master/client/Dockerfile +  fly launch --dockerfile=./Dockerfile to configure deployment
 
 At this point all configuration / setup / installations / boilerplate are pretty much done.
 
