@@ -1,6 +1,6 @@
 
 import './App.css'
-import {createBrowserRouter, type RouteObject, RouterProvider} from "react-router-dom";
+import {createBrowserRouter, type RouteObject, RouterProvider, useNavigate} from "react-router-dom";
 
 import {useEffect} from "react";
 
@@ -23,7 +23,7 @@ function BookList() {
     }
     return (
         <div>
-            <h2>Book List</h2>
+            <h2 className={"text-primary"}>Book List</h2>
             <ul>
                 {books.map(book => (
                     <li key={book.id}>{book.title} - {book.pages} pages</li>
@@ -58,6 +58,7 @@ function GenreList(){
     
 }
 
+
 function AuthorList(){
     const [authors, ] = useAtom(authorsAtom);
     const [, fetchAuthors] = useAtom(fetchAuthorsAtom);
@@ -81,17 +82,27 @@ function AuthorList(){
     
 }
 
+
+
+
 export function Home () {
-    return <div>This is the  Library homepage</div>
+    const navigate = useNavigate();
+    return (
+    <div className="home-container">
+        <button onClick={() => {navigate('/authors')}}>Go to Authors </button>
+        <button onClick={() => {navigate('/books')}}>Go to Books </button>
+        <button onClick={() => {navigate('/genres')}}>Go to Genres </button>
+    </div>
+    )
+    
 }
-
-
 
 
 const myRoutes: RouteObject[] = [
     {
         path: "/",
         element: <Home/>
+        
     },
     {
         path: "/books",

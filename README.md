@@ -1,12 +1,11 @@
 ﻿####fullstackprojectthienlam
+Building the UI element (button / input field, etc)
+
+2. Implement CRUD operations for a Book,Genre,Author entity
+3.Build the state container + events for the UI elements
 
 
-At this point all configuration / setup / installations / boilerplate are pretty much done.
 
-Each feature from this point can be implemented like this:
-
-Build the UI element (button / input field, etc)
-Build the state container + events for the UI elements
 Figure out what data you need to send/retrieve from backend and make RequestDto and optionally response DTO from this
 Build the Controller method
 Build the Service method

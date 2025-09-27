@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-    themes: ["light", "dark"];
+    themes: ["light"];
 }
 
 
@@ -45,4 +45,10 @@
 
 .read-the-docs {
   color: #888;
+}
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

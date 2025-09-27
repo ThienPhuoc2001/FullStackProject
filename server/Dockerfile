@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine AS build
 WORKDIR /server/Dockerfile
 COPY ["./", "."]
 # Publish the application as a framework-dependent app.
-# This is more standard for containerized .NET apps and avoids issues with self-contained executables.
+# This is more standard for containerized =.NET apps and avoids issues with self-contained executables.
 RUN dotnet publish "api/api.csproj" \
     -c Release \
     -o /app/publish
@@ -13,8 +13,8 @@ RUN dotnet publish "api/api.csproj" \
 FROM mcr.microsoft.com/dotnet/aspnet:9.0-alpine
 WORKDIR /app
 COPY --from=build /app/publish .
-ENV ASPNETCORE_URLS=http://0.0.0.0:8080
-EXPOSE 8080
+ENV ASPNETCORE_URLS=http://0.0.0.0:5000
+EXPOSE 5000 
 
 # The entry point is the dotnet runtime, which will execute the application's DLL.
 ENTRYPOINT ["dotnet", "api.dll"]
